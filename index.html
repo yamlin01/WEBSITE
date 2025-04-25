@@ -1,58 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>JS Exercise 1</title>
+<title>JS Exercise 2</title>
 </head>
 <body>
 
-<h1>JS Exercise 1</h1>
+<h1>JS Exercise 2</h1>
 
-<label for="firstNumber">Enter First Number:</label>
-<input type="number" id="firstNumber"><br><br>
+<label for="firstName">First Name:</label>
+<input type="text" id="firstName"><br><br>
 
-<label for="secondNumber">Enter Second Number:</label>
-<input type="number" id="secondNumber"><br><br>
+<label for="middleName">Middle Name:</label>
+<input type="text" id="middleName"><br><br>
 
-<button onclick="calculate()">Calculate</button>
-<button onclick="clearFields()">Clear</button><br><br>
+<label for="lastName">Last Name:</label>
+<input type="text" id="lastName"><br><br>
 
-<label for="sum">Sum:</label>
-<input type="text" id="sum" readonly><br><br>
+<button onclick="generateFullName()">Generate Fullname</button>
+<button onclick="clearFields()">Clear Entries</button><br><br>
 
-<label for="difference">Difference:</label>
-<input type="text" id="difference" readonly><br><br>
-
-<label for="product">Product:</label>
-<input type="text" id="product" readonly><br><br>
-
-<label for="quotient">Quotient:</label>
-<input type="text" id="quotient" readonly><br><br>
+<label for="fullName">Full Name:</label>
+<input type="text" id="fullName" readonly><br><br>
 
 <script>
-function calculate() {
-  let num1 = parseFloat(document.getElementById("firstNumber").value);
-  let num2 = parseFloat(document.getElementById("secondNumber").value);
+function generateFullName() {
+  let firstName = document.getElementById("firstName").value;
+  let middleName = document.getElementById("middleName").value;
+  let lastName = document.getElementById("lastName").value;
 
-  if (isNaN(num1) || isNaN(num2)) {
-    alert("Please enter valid numbers.");
-    return;
+  let fullName = firstName;
+  if (middleName) {
+    fullName += " " + middleName;
+  }
+  if (lastName) {
+    fullName += " " + lastName;
   }
 
-  document.getElementById("sum").value = num1 + num2;
-  document.getElementById("difference").value = num1 - num2;
-  document.getElementById("product").value = num1 * num2;
-  document.getElementById("quotient").value = num1 / num2;
+  document.getElementById("fullName").value = fullName;
 }
 
 function clearFields() {
-  document.getElementById("firstNumber").value = "";
-  document.getElementById("secondNumber").value = "";
-  document.getElementById("sum").value = "";
-  document.getElementById("difference").value = "";
-  document.getElementById("product").value = "";
-  document.getElementById("quotient").value = "";
+  document.getElementById("firstName").value = "";
+  document.getElementById("middleName").value = "";
+  document.getElementById("lastName").value = "";
+  document.getElementById("fullName").value = "";
 }
 </script>
 
 </body>
-</html
+</html>
